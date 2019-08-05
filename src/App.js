@@ -24,6 +24,22 @@ class App extends React.Component {
     }
   };
 
+  toggleItem = id => {
+    console.log('toggleItem working ', id);
+    this.setState({
+      todo: this.state.todo.map(item => {
+        if (item.id === id) {
+          return {
+            ...item,
+            completed: !item.completed
+          };
+        } else {
+          return item
+        }
+      })
+    })
+  }
+
   addTodo = addedTodo => {
     console.log('addTodo working?')
     const newTodo = {
@@ -35,6 +51,12 @@ class App extends React.Component {
       todo: [...this.state.todo, newTodo]
     })
   }
+
+  clearCompleted = () => {
+    this.setState({
+      todo: this.state.todo.filter(e => !e.completed)
+    })
+  }
   
   render() {
     return (
@@ -44,9 +66,11 @@ class App extends React.Component {
         {this.state.todo.map(e => <p>{e.task}</p>)} */}
         <TodoList 
           todos={this.state.todo}
+          toggleItem={this.toggleItem}
         />
         <TodoForm 
-          addTodo={this.addTodo}/>
+          addTodo={this.addTodo}
+          clearCompleted={this.clearCompleted}/>
       </div>
     );
   }
