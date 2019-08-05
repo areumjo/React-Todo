@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoList from './components/TodoComponents/TodoList.js';
 import TodoForm from './components/TodoComponents/TodoForm.js';
 
 class App extends React.Component {
@@ -21,14 +22,23 @@ class App extends React.Component {
         }
       ]
     }
+  };
+
+  addTodo = () => {
+    console.log('addTodo working?')
   }
   
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <p>TodoList from App.js</p>
         {this.state.todo.map(e => <p>{e.task}</p>)}
         <TodoForm />
+        <TodoList 
+          todos={this.state.todo}
+          addTodo={this.addTodo}
+        />
       </div>
     );
   }
