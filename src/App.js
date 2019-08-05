@@ -24,21 +24,29 @@ class App extends React.Component {
     }
   };
 
-  addTodo = () => {
+  addTodo = addedTodo => {
     console.log('addTodo working?')
+    const newTodo = {
+      task: addedTodo,
+      id: Date.now(),
+      completed: false
+    };
+    this.setState({
+      todo: [...this.state.todo, newTodo]
+    })
   }
   
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <p>TodoList from App.js</p>
-        {this.state.todo.map(e => <p>{e.task}</p>)}
-        <TodoForm />
+        {/* <p>TodoList from App.js</p>
+        {this.state.todo.map(e => <p>{e.task}</p>)} */}
         <TodoList 
           todos={this.state.todo}
-          addTodo={this.addTodo}
         />
+        <TodoForm 
+          addTodo={this.addTodo}/>
       </div>
     );
   }
