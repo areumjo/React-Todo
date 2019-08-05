@@ -12,8 +12,8 @@ class App extends React.Component {
       todo: [
         {
           task: 'Buy macbook pro',
-          id: 1528817077286,
-          completed: true
+          id: 15288170772354,
+          completed: false
         },
         {
           task: 'Book flight tickets to Seattle',
