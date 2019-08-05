@@ -3,18 +3,19 @@
 
 import React from "react";
 import Todo from "./Todo";
+import { Icon } from 'semantic-ui-react';
 
 const TodoList = props => {
     console.log('TodoList ', props)
-    return(
-        <div className="outer-todo-list">
-            <div className="lines"></div>
-            <div className="todo-list">
-                <h3 className="todolist-title">TodoList</h3>
-                {props.todos.map(e => 
-                    <Todo todo={e} key={e.id} toggleItem={props.toggleItem}/>)}
-            </div>
+    return(            
+        <div className="todo-list">
+            <h2 className="todolist-title"><Icon className="sticky note outline" />Todo Note<Icon className="sticky note outline" /></h2>
+            
+            {props.todos.map(e => 
+                <Todo todo={e} key={e.id} toggleItem={props.toggleItem}/>)}
+                
         </div>
+
     )
 }
 

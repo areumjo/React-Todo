@@ -1,4 +1,5 @@
 import React from 'react';
+import { Icon } from 'semantic-ui-react';
 
 class TodoForm extends React.Component {
     constructor() {
@@ -30,9 +31,9 @@ class TodoForm extends React.Component {
                         value={this.state.todo}
                         onChange={this.handleChange}
                     />
-                    <button className="addtodo-btn">Add Todo</button>
+                    <button className="addtodo-btn"><Icon name='pencil alternate' size='big' /></button>
                 </form>
-                <button className="clear-btn" onClick={this.props.clearCompleted}>Clear Completed</button>
+                <button className="clear-btn" onClick={this.props.clearCompleted}><Icon name='eraser' size='big' /><span>Erase completed todos</span><Icon name='eraser' size='big' /></button>
             </>
         )
     }

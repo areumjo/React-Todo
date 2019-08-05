@@ -11,13 +11,28 @@ class App extends React.Component {
     this.state={
       todo: [
         {
-          task: 'Organize Garage',
+          task: 'Buy macbook pro',
+          id: 1528817077286,
+          completed: true
+        },
+        {
+          task: 'Book flight tickets to Seattle',
           id: 1528817077286,
           completed: false
         },
         {
-          task: 'Bake Cookies',
+          task: 'Get temporary housing',
           id: 1528817084358,
+          completed: false
+        },
+        {
+          task: 'Call moving company',
+          id: 1528817084319,
+          completed: false
+        },
+        {
+          task: 'Arrage elevator for moving in',
+          id: 1528817084330,
           completed: false
         }
       ]
@@ -59,16 +74,19 @@ class App extends React.Component {
   render() {
     return (
       <div className="app-container">
-        <h1>Welcome to your Todo App!</h1>
+        <h1>Welcome to Todo Note App!</h1>
         {/* <p>TodoList from App.js</p>
         {this.state.todo.map(e => <p>{e.task}</p>)} */}
-        <TodoForm 
-          addTodo={this.addTodo}
-          clearCompleted={this.clearCompleted}/>
-        <TodoList 
-          todos={this.state.todo}
-          toggleItem={this.toggleItem}
-        />
+        <div className="outer-todo-list">
+          <div className="lines"></div>
+          <TodoList 
+            todos={this.state.todo}
+            toggleItem={this.toggleItem}
+          />
+          <TodoForm 
+            addTodo={this.addTodo}
+            clearCompleted={this.clearCompleted}/>
+          </div>
       </div>
     );
   }
