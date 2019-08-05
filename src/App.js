@@ -25,7 +25,6 @@ class App extends React.Component {
   };
 
   toggleItem = id => {
-    console.log('toggleItem working ', id);
     this.setState({
       todo: this.state.todo.map(item => {
         if (item.id === id) {
@@ -41,7 +40,6 @@ class App extends React.Component {
   }
 
   addTodo = addedTodo => {
-    console.log('addTodo working?')
     const newTodo = {
       task: addedTodo,
       id: Date.now(),
@@ -60,17 +58,17 @@ class App extends React.Component {
   
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className="app-container">
+        <h1>Welcome to your Todo App!</h1>
         {/* <p>TodoList from App.js</p>
         {this.state.todo.map(e => <p>{e.task}</p>)} */}
+        <TodoForm 
+          addTodo={this.addTodo}
+          clearCompleted={this.clearCompleted}/>
         <TodoList 
           todos={this.state.todo}
           toggleItem={this.toggleItem}
         />
-        <TodoForm 
-          addTodo={this.addTodo}
-          clearCompleted={this.clearCompleted}/>
       </div>
     );
   }
